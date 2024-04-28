@@ -12,6 +12,23 @@
     width: 1920px;
     height: 780px;
     background: #124158;
+    display: flex;
+    flex-direction: column;
+}
+.content-block-blk{
+    width: 780px;
+    height: 200px;
+    background: #236161;
+    margin: 10px;
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    border: 1px solid #ffffff;
+}
+.content-block-blk-text{
+    font-size: 32px;
+    color: white;
+    margin-left: 10px;
 }
 .civilization-parser{
     display: flex;
