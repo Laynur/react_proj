@@ -1,11 +1,27 @@
 .header{
     width: 1920px;
     height: 153px;
-    background: #121c31;
+    /*background: #121c31;*/
+    background: #000000;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    animation: rgb-animation 7s infinite linear;
 
+}
+@keyframes rgb-animation {
+    0% {
+        border: 5px solid rgba(255, 0, 0, 0.5); /* Красный */
+    }
+    33% {
+        border: 5px solid  rgba(0, 255, 0, 0.5); /* Зеленый */
+    }
+    66% {
+        border: 5px solid  rgba(0, 0, 255, 0.5); /* Синий */
+    }
+    100% {
+        border: 5px solid  rgba(255, 0, 0, 0.5); /* Красный */
+    }
 }
 .header-logo{
     width: 384px;
