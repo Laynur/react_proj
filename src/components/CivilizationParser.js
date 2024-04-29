@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 
 function CivilizationParser() {
     const [civilizations, setCivilizations] = useState([]);
-
+    const [displayEl, setDisplay] = useState('none');
+    const [widthSize, setWidthSize] = useState('1920px');
+    const [selectedCiv, setSelectedCiv] = useState(null);
     useEffect(() => {
         const fetchCivilizations = async () => {
             try {
@@ -59,6 +61,7 @@ function CivilizationParser() {
                         return data;
                     })
                 );
+
                 setCivilizations(fetchedCivilizations);
             } catch (error) {
                 console.error('Error fetching civilizations:', error);
@@ -67,20 +70,72 @@ function CivilizationParser() {
 
         fetchCivilizations();
     }, []);
+    // console.log(civilizations)
+    console.log(selectedCiv)
+    const rightPanel = (civ) =>{
+        setDisplay('block')
+        setWidthSize('960px')
+        setSelectedCiv(civ)
 
+    }
+    const closeRightPanel = () =>{
+        setDisplay('none')
+        setWidthSize('1920px')
+    }
     return (
-        <div>
-            <h1>Цивилизации</h1>
-            <div className="civilization-parser">
-                {civilizations.map((civ, index) => (
-                    <div key={index} className="civilization-parser-civic">
-                        <label className="civilization-parser-civic-label">
-                            {civ.name}
-                        </label>
-                        <img className="civilization-parser-civic-img" src={civ.icon}/>
-                    </div>
-                ))}
+        <div className="civilization-parser-container">
+            <div className="civilization-parser-civcont" style={{width:widthSize}}>
+                <h1 style={{color:'white', margin:'10px', padding:'10px'}}>Цивилизации</h1>
+                <div className="civilization-parser">
+                    {civilizations.map((civ, index) => (
+                        <div key={index} className="civilization-parser-civic" onClick={()=>rightPanel(civ)}>
+                            <label className="civilization-parser-civic-label">
+                                {civ.name}
+                            </label>
+                            <img className="civilization-parser-civic-img" src={civ.icon}/>
+                        </div>
+                    ))}
+                </div>
             </div>
+            <div style={{display: displayEl}} className="civilization-parser-info">
+                <div className="civilization-parser-info-header">
+
+                    <div style={{display:'flex'}}>
+                        {selectedCiv && ( // Check if selectedCiv is not null before accessing its properties
+                            <>
+                                <h1>{selectedCiv.name}</h1>
+                                <img className="civilization-parser-civic-img" src={selectedCiv.icon}/>
+                            </>
+                        )}
+                    </div>
+                    <button onClick={closeRightPanel}>Выйти</button>
+                </div>
+                <div className="civilization-parser-info-content">
+                    {selectedCiv && ( // Проверяем, что selectedCiv не равен null или undefined
+                        <div>
+                            <h2>Лидер</h2>
+                            <h3>{selectedCiv.leader.name}</h3>
+                            <img src={selectedCiv.leader.icon}/>
+                            <h3>Годы жизни: {selectedCiv.leader.lived}</h3>
+                            <h2>Историческая справка о лидере</h2>
+                            <ul>
+                                {selectedCiv.leader.historical_info[1].text}
+                            </ul>
+
+                            <h2>Уникальные юниты:</h2>
+                            <ul>
+                                {selectedCiv.dawn_of_man}
+                            </ul>
+                            <h2>Города:</h2>
+                            <ul>
+                                {selectedCiv.city_names.join(', ')}
+                            </ul>
+
+                        </div>
+                    )}
+                </div>
+            </div>
+
         </div>
     );
 }
