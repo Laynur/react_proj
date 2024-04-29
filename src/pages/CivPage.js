@@ -1,6 +1,5 @@
 import React from 'react'
 import CivilizationParser from "../components/CivilizationParser";
-import CivilizationInfo from "../components/CivilizationInfo";
 
 function CivPage(){
     return (
