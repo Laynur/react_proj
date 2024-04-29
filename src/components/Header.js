@@ -1,12 +1,12 @@
 import React from 'react'
-
+import {NavLink} from "react-router-dom";
 const headerimagePath = './img/civ5_logo.png';
 function Header(){
     return (
         <div className="header">
-            <div className="header-logo">
+            <NavLink to="/" className="header-logo">
                 <img className="header-logo headimgs" src={headerimagePath} alt="logo"/>
-            </div>
+            </NavLink>
             <input className="input-container" placeholder="Search..."></input>
         </div>
     );
