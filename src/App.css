@@ -72,6 +72,9 @@
     background: #1da8be;
     border-radius: 4px;
 }
+.civilization-parser-civic:hover{
+
+}
 .civilization-parser-civic-label{
     color: #ffffff;
     font-size: 18px;
@@ -79,6 +82,22 @@
 .civilization-parser-civic-img{
     width: 90px;
 }
+.civilization-parser-container{
+    display: flex;
+}
+.civilization-parser-info{
+    width: 960px;
+    background: bisque;
+}
+.civilization-parser-civcont{
+    width: 960px;
+}
+.civilization-parser-info-header{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
 
 @media (max-width: 1920px) {
     .content-block{
