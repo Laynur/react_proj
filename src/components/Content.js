@@ -1,5 +1,5 @@
 import React from 'react'
-import CivPage from "../pages/CivPage";
+import {NavLink} from "react-router-dom";
 
 function Content(){
     const btnClck = () =>{
@@ -7,10 +7,12 @@ function Content(){
     }
     return (
         <div className="content-block">
-            <div onClick={btnClck} className="content-block-blk content-block-blk-civ">
+            {/*<div className="content-block-blk content-block-blk-civ">*/}
+            {/*    <h1 className="content-block-blk-text">Цивилизации</h1>*/}
+            {/*</div>*/}
+            <NavLink to="/civpage" className="content-block-blk content-block-blk-civ">
                 <h1 className="content-block-blk-text">Цивилизации</h1>
-            </div>
-
+            </NavLink>
             <div className="content-block-blk content-block-blk-unit">
                 <h1 className="content-block-blk-text">Юниты</h1>
             </div>
