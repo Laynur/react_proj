@@ -20,23 +20,23 @@ function UnitsParser() {
         setWidthSize('1920px')
     }
     return (
-        <div className="units-content-page">
+        <div className="parser-content-page">
             <div style={{width:widthSize}}>
                 <h1 style={{color:'white'}}>Список Юнитов</h1>
-                <div className="units-content">
+                <div className="parser-content">
 
                     {units.map(unit => (
-                        <div className="units-content-block" key={unit.id} onClick={()=>rightPanel(unit)}>
+                        <div className="parser-content-block" key={unit.id} onClick={()=>rightPanel(unit)}>
                             <img src={unit.icon} alt={unit.name}/>
                             <p style={{color: 'white'}}>{unit.name.split('|')[0]}</p>
                         </div>
                     ))}
                 </div>
             </div>
-            <div style={{display: displayEl}} className="units-content-info">
-                <div className="units-content-info-header">
+            <div style={{display: displayEl}} className="parser-content-info">
+                <div className="parser-content-info-header">
                     {selectedUnit && (
-                        <div className="units-content-info-header-gameinfo">
+                        <div className="parser-content-info-header-gameinfo">
                             <div>
                                 <h2 style={{color: 'white'}}>{selectedUnit.name.split('|')[0]}</h2>
                                 <img src={selectedUnit.icon}/>
@@ -51,7 +51,7 @@ function UnitsParser() {
                         <button onClick={closeRightPanel}>X</button>
                     </div>
                 </div>
-                <div className="units-content-info-content">
+                <div className="parser-content-info-content">
                     {selectedUnit && (
                         <div>
 

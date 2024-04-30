@@ -7,6 +7,8 @@ import Header from './components/Header';
 import Content from "./components/Content";
 import CivPage from "./pages/CivPage";
 import UnitPage from "./pages/UnitPage";
+import ResourcePage from "./pages/ResourcePage";
+import BuildingPage from "./pages/BuildingPage";
 function App() {
 
   return (
@@ -18,14 +20,12 @@ function App() {
                 <Route path="/" element={<Content/>} />
                 <Route path="/civpage" element={<CivPage/>}/>
                 <Route path="/unitpage" element={<UnitPage/>}/>
+                <Route path="/resourcepage" element={<ResourcePage/>}/>
+                <Route path="/buildingpage" element={<BuildingPage/>}/>
             </Routes>
 
 
         </Router>
-
-        {/*<Routes>*/}
-        {/*    <Route path="/civpage" element={<CivPage/>} />*/}
-        {/*</Routes>*/}
     </div>
   );
 }
