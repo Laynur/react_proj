@@ -11,16 +11,25 @@
 }
 @keyframes rgb-animation {
     0% {
-        border: 5px solid rgba(255, 0, 0, 0.5); /* Красный */
+        border: 5px solid rgb(76, 12, 12); /* Красный */
+    }
+    23% {
+        border: 5px solid rgb(253, 180, 39); /* Зеленый */
     }
     33% {
         border: 5px solid  rgba(0, 255, 0, 0.5); /* Зеленый */
     }
+    55% {
+        border: 5px solid rgb(132, 17, 170); /* Зеленый */
+    }
     66% {
-        border: 5px solid  rgba(0, 0, 255, 0.5); /* Синий */
+        border: 5px solid rgb(67, 5, 85); /* Синий */
+    }
+    77% {
+        border: 5px solid rgb(20, 20, 115); /* Синий */
     }
     100% {
-        border: 5px solid  rgba(255, 0, 0, 0.5); /* Красный */
+        border: 5px solid rgb(76, 12, 12); /* Красный */
     }
 }
 .header-logo{

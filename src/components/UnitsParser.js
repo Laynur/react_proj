@@ -36,28 +36,32 @@ function UnitsParser() {
             <div style={{display: displayEl}} className="parser-content-info">
                 <div className="parser-content-info-header">
                     {selectedUnit && (
+
                         <div className="parser-content-info-header-gameinfo">
-                            <div>
-                                <h2 style={{color: 'white'}}>{selectedUnit.name.split('|')[0]}</h2>
-                                <img src={selectedUnit.icon}/>
-                            </div>
-                            <div>
-                                <h2 style={{color: 'white'}}>{selectedUnit.game_info}</h2>
-                            </div>
+                            <h2 style={{color: 'white'}}>{selectedUnit.name.split('|')[0]}</h2>
+                            <img src={selectedUnit.icon}/>
+
                         </div>
+
 
                     )}
                     <div>
-                        <button onClick={closeRightPanel}>X</button>
+                        <button className="parser-content-info-header-exit" onClick={closeRightPanel}>X</button>
                     </div>
                 </div>
                 <div className="parser-content-info-content">
                     {selectedUnit && (
                         <div>
+                            <h3 style={{color: 'white'}}>{selectedUnit.game_info}</h3>
+                            <h3 style={{color: 'white'}}>{selectedUnit.strategy}</h3>
+                            <h3 style={{color: 'white'}}>Перемещение: {selectedUnit.movement} клеток</h3>
+                            <h3 style={{color: 'white'}}>Стоимость: {selectedUnit.cost.production} производста</h3>
+                            <h3 style={{color: 'white'}}>Необходимо исследовать: {selectedUnit.prereq_tech.name.split('|')[0]}</h3>
+                            <h3 style={{color: 'white'}}>Возможности:</h3>
 
-                            <p style={{color: 'white'}}>{selectedUnit.strategy}</p>
-                            <h2 style={{color: 'white'}}>Перемещение: {selectedUnit.movement} клеток</h2>
-                            <h2 style={{color: 'white'}}>Стоимость: {selectedUnit.cost.production} производста</h2>
+                            {selectedUnit.free_promotions.map(promotion => (
+                                <ul key={promotion.name} style={{color: 'white'}}>- {promotion.name}</ul>
+                            ))}
                         </div>
                     )}
                 </div>
