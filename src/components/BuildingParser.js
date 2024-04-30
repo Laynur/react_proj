@@ -37,18 +37,13 @@ function BuildingParser() {
                 <div className="parser-content-info-header">
                     {selectedBuilding && (
                         <div className="parser-content-info-header-gameinfo">
-                            <div>
-                                <h2 style={{color: 'white'}}>{selectedBuilding.name.split('|')[0]}</h2>
-                                <img src={selectedBuilding.icon}/>
-                            </div>
-                            <div>
-                                <h2 style={{color: 'white'}}>{selectedBuilding.game_info}</h2>
-                            </div>
+                            <h2 style={{color: 'white'}}>{selectedBuilding.name.split('|')[0]}</h2>
+                            <img src={selectedBuilding.icon}/>
                         </div>
 
                     )}
                     <div>
-                        <button onClick={closeRightPanel}>X</button>
+                        <button className="parser-content-info-header-exit" onClick={closeRightPanel}>X</button>
                     </div>
                 </div>
                 <div className="parser-content-info-content">
