@@ -1,18 +1,16 @@
-
 import './App.css';
 import './Header.css';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import {Link} from 'react-router-dom';
 import Header from './components/Header';
 import Content from "./components/Content";
 import CivPage from "./pages/CivPage";
 import UnitPage from "./pages/UnitPage";
 import ResourcePage from "./pages/ResourcePage";
 import BuildingPage from "./pages/BuildingPage";
+import TechPage from "./pages/TechPage";
 function App() {
 
   return (
-
     <div className="App">
         <Router>
             <Header />
@@ -21,10 +19,9 @@ function App() {
                 <Route path="/civpage" element={<CivPage/>}/>
                 <Route path="/unitpage" element={<UnitPage/>}/>
                 <Route path="/resourcepage" element={<ResourcePage/>}/>
+                <Route path="/techpage" element={<TechPage/>}/>
                 <Route path="/buildingpage" element={<BuildingPage/>}/>
             </Routes>
-
-
         </Router>
     </div>
   );

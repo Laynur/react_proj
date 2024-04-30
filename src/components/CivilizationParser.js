@@ -22,7 +22,7 @@ function CivilizationParser() {
     return (
         <div className="parser-content-page">
             <div style={{width:widthSize}}>
-                <h1 style={{color:'white'}}>Список Юнитов</h1>
+                <h1 style={{color:'white'}}>Цивилизации</h1>
                 <div className="parser-content">
 
                     {civilizations.map(civilization => (
@@ -37,30 +37,40 @@ function CivilizationParser() {
                 <div className="parser-content-info-header">
                     {selectedCivilization && (
                         <div className="parser-content-info-header-gameinfo">
-                            <div>
-                                <h2 style={{color: 'white'}}>{selectedCivilization.name.split('|')[0]}</h2>
-                                <img src={selectedCivilization.icon}/>
-                            </div>
-                            {/*<div>*/}
-                            {/*    <h2 style={{color: 'white'}}>{selectedCivilization.game_info}</h2>*/}
-                            {/*</div>*/}
+                            <h2 style={{color: 'white'}}>{selectedCivilization.name.split('|')[0]}</h2>
+                            <img src={selectedCivilization.icon}/>
                         </div>
 
                     )}
                     <div>
-                        <button onClick={closeRightPanel}>X</button>
+                        <button className="parser-content-info-header-exit" onClick={closeRightPanel}>X</button>
                     </div>
                 </div>
-                {/*<div className="units-content-info-content">*/}
-                {/*    {selectedUnit && (*/}
-                {/*        <div>*/}
+                <div className="parser-content-info-content">
+                    {selectedCivilization && (
+                        <>
+                            <div className="parser-content-info-content-leaderinfo">
+                                <div className="parser-content-info-content-leaderinfo_name_img">
+                                    <h2 style={{color: 'white'}}>Лидер: {selectedCivilization.leader.name}</h2>
+                                    <img src={selectedCivilization.leader.icon} />
+                                    <h3 style={{color: 'white'}}>Годы жизни: {selectedCivilization.leader.lived}</h3>
+                                </div>
+                                <div className="parser-content-info-content-leaderinfo_title">
+                                    <h3 style={{color: 'white'}}>{selectedCivilization.leader.titles[0]}</h3>
+                                    <h3 style={{color: 'white'}}>{selectedCivilization.leader.titles[1]}</h3>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 style={{color: 'white'}}>{selectedCivilization.dawn_of_man}</h3>
+                            </div>
+                            <div>
+                                <h2 style={{color: 'white'}}>Города:</h2>
+                                <h3 style={{color: 'white'}}>{selectedCivilization.city_names.join(', ')}</h3>
+                            </div>
+                        </>
+                    )}
+                </div>
 
-                {/*            <p style={{color: 'white'}}>{selectedUnit.strategy}</p>*/}
-                {/*            <h2 style={{color: 'white'}}>Перемещение: {selectedUnit.movement} клеток</h2>*/}
-                {/*            <h2 style={{color: 'white'}}>Стоимость: {selectedUnit.cost.production} производста</h2>*/}
-                {/*        </div>*/}
-                {/*    )}*/}
-                {/*</div>*/}
             </div>
         </div>
     );

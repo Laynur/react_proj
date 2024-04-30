@@ -45,8 +45,8 @@
     background-image: url("/public/img/content_block_resources.png");
     background-position: inherit;
 }
-.content-block-blk-place:hover{
-    background-image: url("/public/img/content_block_place.jpg");
+.content-block-blk-tech:hover{
+    background-image: url("/public/img/content_block_tech.jpg");
     background-position: center;
 }
 .content-block-blk-building:hover{
@@ -73,7 +73,7 @@
     height: 290px;
 }
 .parser-content-info{
-    border: 1px solid red;
+    border: 5px dashed red;
     width: 960px;
 }
 .parser-content-page{
@@ -82,15 +82,54 @@
 .parser-content-info-header{
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
 }
 .parser-content-info-header-gameinfo{
     display: flex;
+    flex-direction: row-reverse;
     align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+.parser-content-info-header-exit{
+    width: 88px;
+    height: 52px;
+    font-size: 43px;
+    color: white;
+    background: #2e3356;
+    border: none;
+    border-radius: 64px;
+    margin-right: 5px;
+    transition: background-color 0.3s ease;
+}
+.parser-content-info-header-exit:hover{
+    animation: colorChange 4s infinite;
+}
+@keyframes colorChange {
+    0% {
+        background-color: rgb(35, 97, 97); /* Красный цвет */
+    }
+    33% {
+        background-color: rgb(255, 128, 0); /* Зеленый цвет */
+    }
+    66% {
+        background-color: rgb(46, 51, 86); /* Синий цвет */
+    }
+    100% {
+        background-color: rgb(76, 12, 12); /* Возвращаемся к красному */
+    }
 }
 .parser-content-info-content{
     margin: 10px;
     padding: 10px;
+}
+.parser-content-info-content-leaderinfo{
+    display: flex;
+}
+.parser-content-info-content-leaderinfo_title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 @media (max-width: 1920px) {
     .content-block{
