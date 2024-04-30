@@ -58,51 +58,13 @@
     color: white;
     margin-left: 10px;
 }
-.civilization-parser{
-    display: flex;
-    flex-wrap: wrap;
-    margin: 5px;
-}
-.civilization-parser-civic{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin: 10px;
-    padding: 10px;
-    background: #1da8be;
-    border-radius: 4px;
-}
-.civilization-parser-civic:hover{
 
-}
-.civilization-parser-civic-label{
-    color: #ffffff;
-    font-size: 18px;
-}
-.civilization-parser-civic-img{
-    width: 90px;
-}
-.civilization-parser-container{
-    display: flex;
-}
-.civilization-parser-info{
-    width: 960px;
-    background: bisque;
-}
-.civilization-parser-civcont{
-    width: 960px;
-}
-.civilization-parser-info-header{
-    display: flex;
-    justify-content: space-between;
-    margin: 10px;
-}
-.units-content{
+.parser-content{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
-.units-content-block{
+.parser-content-block{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -110,23 +72,23 @@
     width: 240px;
     height: 290px;
 }
-.units-content-info{
+.parser-content-info{
     border: 1px solid red;
     width: 960px;
 }
-.units-content-page{
+.parser-content-page{
     display: flex;
 }
-.units-content-info-header{
+.parser-content-info-header{
     display: flex;
     justify-content: space-between;
     align-items: baseline;
 }
-.units-content-info-header-gameinfo{
+.parser-content-info-header-gameinfo{
     display: flex;
     align-items: center;
 }
-.units-content-info-content{
+.parser-content-info-content{
     margin: 10px;
     padding: 10px;
 }

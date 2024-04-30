@@ -16,15 +16,15 @@ function Content(){
             <NavLink to="/unitpage" className="content-block-blk content-block-blk-unit">
                 <h1 className="content-block-blk-text">Юниты</h1>
             </NavLink>
-            <div className="content-block-blk content-block-blk-resour">
+            <NavLink to="/resourcepage" className="content-block-blk content-block-blk-resour">
                 <h1 className="content-block-blk-text">Ресурсы</h1>
-            </div>
+            </NavLink>
             <div className="content-block-blk content-block-blk-place">
                 <h1 className="content-block-blk-text">Местности</h1>
             </div>
-            <div className="content-block-blk content-block-blk-building">
+            <NavLink to="/buildingpage" className="content-block-blk content-block-blk-building">
                 <h1 className="content-block-blk-text">Здания</h1>
-            </div>
+            </NavLink>
         </div>
     );
 }
