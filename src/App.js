@@ -1,5 +1,6 @@
-import './App.css';
-import './Header.css';
+import './style/App.css';
+import './style/Header.css';
+import './style/Footer.css';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Header from './components/Header';
 import Content from "./components/Content";
@@ -8,6 +9,7 @@ import UnitPage from "./pages/UnitPage";
 import ResourcePage from "./pages/ResourcePage";
 import BuildingPage from "./pages/BuildingPage";
 import TechPage from "./pages/TechPage";
+import Footer from "./components/Footer";
 function App() {
 
   return (
@@ -22,6 +24,7 @@ function App() {
                 <Route path="/techpage" element={<TechPage/>}/>
                 <Route path="/buildingpage" element={<BuildingPage/>}/>
             </Routes>
+            <Footer />
         </Router>
     </div>
   );
