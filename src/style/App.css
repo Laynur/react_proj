@@ -13,9 +13,13 @@
     width: 1920px;
     height: 780px;
     /*background: #124158;*/
-    background: #000000;
+    /*background: #626495;*/
+    background-image: url("/public/img/civ_content.jpg");
+    background-color: rgba(0,0,0,0.7);
+    background-blend-mode: multiply;
     display: flex;
     flex-direction: column;
+
 }
 .content-block-blk{
     width: 780px;
@@ -27,7 +31,9 @@
     border-radius: 10px;
     align-items: center;
     border: 1px solid #ffffff;
-
+    animation-name: content-block-blk-anim;
+    animation-duration: 5s;
+    transition: transform 0.4s ease;
 }
 
 .content-block-blk:hover{
@@ -68,13 +74,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
     width: 240px;
     height: 290px;
+    transition: transform 0.3s ease;
+}
+.parser-content-block:hover{
+    transform: scale(1.1);
 }
 .parser-content-info{
-    border: 5px dashed red;
+    /*border: 5px dashed red;*/
     width: 960px;
+    background: #060610;
 }
 .parser-content-page{
     display: flex;
@@ -158,6 +168,17 @@
 @media (max-width: 480px) {
     .content-block{
         width: 100%;
+    }
+}
+/*width 780 height 200*/
+@keyframes content-block-blk-anim {
+    from{
+        width: 100px;
+        height: 100px;
+    }
+    to{
+        width: 780px;
+        height: 200px;
     }
 }
 

@@ -1,0 +1,8 @@
+.footer{
+    width: 1920px;
+    height: 230px;
+    /*background-image: url("/public/img/civ_footer.jpg");*/
+    /*background-position: bottom;*/
+    background-image: url("/public/img/civ_header1.jpg");
+    background-position: bottom;
+}

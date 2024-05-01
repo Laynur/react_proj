@@ -28,8 +28,10 @@ function TechParser() {
 
                 <h1 style={{color:'white'}}>Технологии</h1>
                 {eraList.map(era => (
-                    <div style={{border:'2px dashed red'}} key={era}>
-                        <h2 style={{color: 'white'}}>{era}</h2>
+                    <div style={{border:'5px dashed red'}} key={era}>
+                        <div style={{display:'flex', justifyContent:'center'}}>
+                            <h2 style={{color: 'white'}}>{era}</h2>
+                        </div>
                         <div className="parser-content">
                             {techs.filter(tech => tech.era.split('|')[0] === era).map(tech => (
                                 <div className="parser-content-block" key={tech.id} onClick={() => rightPanel(tech)}>

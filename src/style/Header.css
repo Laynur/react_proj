@@ -1,12 +1,14 @@
 .header{
     width: 1920px;
-    height: 153px;
+    height: 230px;
     /*background: #121c31;*/
-    background: #000000;
+    background: #2b3049;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    animation: rgb-animation 7s infinite linear;
+    /*animation: rgb-animation 7s infinite linear;*/
+    background-image: url("/public/img/civ_header1.jpg");
+    background-position: center;
 
 }
 @keyframes rgb-animation {

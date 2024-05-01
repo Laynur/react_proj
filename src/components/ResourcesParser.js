@@ -37,29 +37,24 @@ function ResourcesParser() {
                 <div className="parser-content-info-header">
                     {selectedResource && (
                         <div className="parser-content-info-header-gameinfo">
-                            <div>
-                                <h2 style={{color: 'white'}}>{selectedResource.name.split('|')[0]}</h2>
-                                <img src={selectedResource.icon}/>
-                            </div>
-                            <div>
-                                <h2 style={{color: 'white'}}>{selectedResource.game_info}</h2>
-                            </div>
+                            <h2 style={{color: 'white'}}>{selectedResource.name.split('|')[0]}</h2>
+                            <img src={selectedResource.icon}/>
                         </div>
 
                     )}
                     <div>
-                        <button onClick={closeRightPanel}>X</button>
+                        <button className="parser-content-info-header-exit" onClick={closeRightPanel}>X</button>
                     </div>
                 </div>
                 <div className="parser-content-info-content">
-                    {/*{selectedResource && (*/}
-                    {/*    <div>*/}
+                    {selectedResource && (
+                        <div>
 
-                    {/*        <p style={{color: 'white'}}>{selectedUnit.strategy}</p>*/}
-                    {/*        <h2 style={{color: 'white'}}>Перемещение: {selectedUnit.movement} клеток</h2>*/}
-                    {/*        <h2 style={{color: 'white'}}>Стоимость: {selectedUnit.cost.production} производста</h2>*/}
-                    {/*    </div>*/}
-                    {/*)}*/}
+                            <h3 style={{color: 'white'}}>{selectedResource.game_info}</h3>
+                            <h3 style={{color: 'white'}}>Предпосылки к открытиям: {selectedResource.prereq_tech.name.split('|')[0]} клеток</h3>
+
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
