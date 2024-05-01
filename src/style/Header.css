@@ -38,10 +38,16 @@
     width: 384px;
     height: 120px;
     margin-left: 20px;
+
 }
+
 .headimgs{
     /*width: 630px;*/
     /*height: 200px;*/
+    transition: transform 0.3s ease;
+}
+.headimgs:hover{
+    transform: scale(1.1);
 }
 @media (max-width: 1920px) {
     .header{
