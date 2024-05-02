@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import {Sidebar} from "@consta/uikit/Sidebar";
 
 function ResourcesParser() {
     const [resources, setResources] = useState([]);
     const [displayEl, setDisplayEl] = useState('none');
     const [widthSize, setWidthSize] = useState('1920px');
     const [selectedResource, setSelectedResource] = useState(null);
+    const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
     useEffect(() => {
         fetch('https://eyefyre.github.io/civvapi/v1/ru/resources/resources.json')
             .then(response => response.json())
@@ -33,6 +35,7 @@ function ResourcesParser() {
                     ))}
                 </div>
             </div>
+
             <div style={{display: displayEl}} className="parser-content-info">
                 <div className="parser-content-info-header">
                     {selectedResource && (
@@ -47,7 +50,7 @@ function ResourcesParser() {
                     </div>
                 </div>
                 <div className="parser-content-info-content">
-                    {selectedResource && (
+                    {selectedResource && selectedResource.game_info != null &&(
                         <div>
 
                             <h3 style={{color: 'white'}}>{selectedResource.game_info}</h3>
