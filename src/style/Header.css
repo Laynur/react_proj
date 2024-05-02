@@ -2,46 +2,32 @@
     width: 1920px;
     height: 230px;
     /*background: #121c31;*/
-    background: #2b3049;
+    /*background: #2b3049;*/
     display: flex;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
+    justify-content: center;
     align-items: center;
-    /*animation: rgb-animation 7s infinite linear;*/
     background-image: url("/public/img/civ_header1.jpg");
     background-position: center;
+    border: 2px solid cyan; /* Измените цвет и толщину границы по желанию */
+    border-radius: 10px; /* Закругление углов, если нужно */
+    box-shadow: 0 0 20px 10px rgba(0, 255, 255, 0.5); /* Неоновая подсветка */
+}
 
-}
-@keyframes rgb-animation {
-    0% {
-        border: 5px solid rgb(76, 12, 12); /* Красный */
-    }
-    23% {
-        border: 5px solid rgb(253, 180, 39); /* Зеленый */
-    }
-    33% {
-        border: 5px solid  rgba(0, 255, 0, 0.5); /* Зеленый */
-    }
-    55% {
-        border: 5px solid rgb(132, 17, 170); /* Зеленый */
-    }
-    66% {
-        border: 5px solid rgb(67, 5, 85); /* Синий */
-    }
-    77% {
-        border: 5px solid rgb(20, 20, 115); /* Синий */
-    }
-    100% {
-        border: 5px solid rgb(76, 12, 12); /* Красный */
-    }
-}
 .header-logo{
     width: 384px;
     height: 120px;
     margin-left: 20px;
+
 }
+
 .headimgs{
     /*width: 630px;*/
     /*height: 200px;*/
+    transition: transform 0.3s ease;
+}
+.headimgs:hover{
+    transform: scale(1.1);
 }
 @media (max-width: 1920px) {
     .header{
