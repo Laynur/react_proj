@@ -95,6 +95,7 @@
 }
 .parser-content-page{
     display: flex;
+    flex-direction: column;
 }
 .parser-content-info-header{
     display: flex;
