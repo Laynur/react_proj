@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Tilt from 'react-parallax-tilt';
+import {Text} from "@consta/uikit/TextDeprecated";
 function UnitsParser() {
     const [units, setUnits] = useState([]);
     const [selectedUnit, setSelectedUnit] = useState(null);
@@ -19,15 +20,19 @@ function UnitsParser() {
     return (
         <div className="parser-content-page">
             <div >
-                <h1 style={{color:'white'}}>Список Юнитов</h1>
+                {/*<h1 style={{color:'white'}}>Список Юнитов</h1>*/}
+                <Text view="normal" size="3xl" weight="black" spacing="l">Юниты</Text>
                 <div className="parser-content">
 
                     {units.map(unit => (
                         <Tilt>
-                        <div className="parser-content-block" key={unit.id} onClick={()=>ModalWind(unit)}>
-                            <img src={unit.icon} alt={unit.name}/>
-                            <p style={{color: 'white'}}>{unit.name.split('|')[0]}</p>
-                        </div>
+                            <div className="parser-content-block" key={unit.id} onClick={() => ModalWind(unit)}>
+                                <img src={unit.icon} alt={unit.name}/>
+                                {/*<p style={{color: 'white'}}>{unit.name.split('|')[0]}</p>*/}
+                                <Text view="normal" size="xl" font="mono" weight="semibold"
+                                      spacing="m" align="center">{unit.name.split('|')[0]}</Text>
+
+                            </div>
                         </Tilt>
                     ))}
                 </div>

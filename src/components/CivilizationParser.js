@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Tilt from 'react-parallax-tilt';
+import {Text} from '@consta/uikit/TextDeprecated';
 function CivilizationParser() {
     const [civilizations, setCivilization] = useState([]);
     const [selectedCivilization, setSelectedCivilization] = useState(null);
@@ -21,7 +22,8 @@ function CivilizationParser() {
         <div className="parser-content-page">
             <div>
                 <div className="parser-content-nameandsearch">
-                    <h1 style={{color:'white'}}>Цивилизации</h1>
+                    {/*<h1 style={{color:'white'}}>Цивилизации</h1>*/}
+                    <Text view="normal" size="3xl" weight="black" spacing="l">Цивилизации</Text>
                     <input />
                 </div>
                 <div className="parser-content">
@@ -32,7 +34,9 @@ function CivilizationParser() {
                             <div className="parser-content-block" key={civilization.id}
                                  onClick={() => ModalWind(civilization)}>
                                 <img src={civilization.icon} alt={civilization.name}/>
-                                <p style={{color: 'white'}}>{civilization.name.split('|')[0]}</p>
+                                {/*<p style={{color: 'white'}}>{civilization.name.split('|')[0]}</p>*/}
+                                <Text view="normal" size="xl" font="mono" weight="semibold"
+                                spacing="m" align="center">{civilization.name.split('|')[0]}</Text>
                             </div>
                         </Tilt>
                     ))}

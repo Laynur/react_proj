@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Tilt from 'react-parallax-tilt';
-
+import {Text} from "@consta/uikit/TextDeprecated";
 function ResourcesParser() {
     const [resources, setResources] = useState([]);
 
@@ -21,14 +21,17 @@ function ResourcesParser() {
     return (
         <div className="parser-content-page">
             <div>
-                <h1 style={{color:'white'}}>Список ресурсов</h1>
+                {/*<h1 style={{color:'white'}}>Список ресурсов</h1>*/}
+                <Text view="normal" size="3xl" weight="black" spacing="l">Ресурсы</Text>
                 <div className="parser-content">
 
                     {resources.map(resource => (
                         <Tilt>
                             <div className="parser-content-block" key={resource.id} onClick={()=>ModalWind(resource)}>
                                 <img src={resource.icon} alt={resource.name}/>
-                                <p style={{color: 'white'}}>{resource.name.split('|')[0]}</p>
+                                {/*<p style={{color: 'white'}}>{resource.name.split('|')[0]}</p>*/}
+                                <Text view="normal" size="xl" font="mono" weight="semibold"
+                                      spacing="m" align="center">{resource.name.split('|')[0]}</Text>
                             </div>
                         </Tilt>
                     ))}

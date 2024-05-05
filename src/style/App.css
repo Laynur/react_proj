@@ -67,8 +67,6 @@
     background-position: center;
 }
 .content-block-blk-text{
-    font-size: 32px;
-    color: white;
     margin-left: 10px;
 }
 
@@ -76,6 +74,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 20px;
 }
 .parser-content-block{
     display: flex;
