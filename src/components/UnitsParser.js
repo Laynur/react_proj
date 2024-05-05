@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Tilt from 'react-parallax-tilt';
-import {Text} from "@consta/uikit/TextDeprecated";
+import {Text} from "@consta/uikit/Text";
 function UnitsParser() {
     const [units, setUnits] = useState([]);
     const [selectedUnit, setSelectedUnit] = useState(null);
@@ -27,7 +27,8 @@ function UnitsParser() {
             <div className="parser-content-nameandsearch">
                 <Text view="normal" size="3xl" weight="black" spacing="l">Юниты</Text>
                 <input
-                    placeholder="search"
+                    className="parser-content-nameandsearch-search"
+                    placeholder="Поиск"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />

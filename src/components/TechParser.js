@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Tilt from 'react-parallax-tilt';
-import {Text} from '@consta/uikit/TextDeprecated';
+import {Text} from '@consta/uikit/Text';
 function TechParser() {
     const [techs, setTech] = useState([]);
     const [selectedTech, setSelectedTech] = useState(null);
@@ -31,7 +31,8 @@ function TechParser() {
                     {/*<h1 style={{color:'white'}}>Технологии</h1>*/}
                     <Text view="normal" size="3xl" weight="black" spacing="l">Технологии</Text>
                     <input
-                        placeholder="search"
+                        className="parser-content-nameandsearch-search"
+                        placeholder="Поиск"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
