@@ -1,10 +1,7 @@
 .header{
     width: 1920px;
     height: 230px;
-    /*background: #121c31;*/
-    /*background: #2b3049;*/
     display: flex;
-    /*justify-content: space-between;*/
     justify-content: center;
     align-items: center;
     background-image: url("/public/img/civ_header1.jpg");
@@ -12,6 +9,7 @@
     border: 2px solid cyan; /* Измените цвет и толщину границы по желанию */
     border-radius: 10px; /* Закругление углов, если нужно */
     box-shadow: 0 0 20px 10px rgba(0, 255, 255, 0.5); /* Неоновая подсветка */
+
 }
 
 .header-logo{
