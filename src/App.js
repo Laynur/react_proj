@@ -1,6 +1,7 @@
 import './style/App.css';
 import './style/Header.css';
 import './style/Footer.css';
+import {Theme,presetGpnDefault} from "@consta/uikit/Theme";
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Header from './components/Header';
 import Content from "./components/Content";
@@ -10,11 +11,12 @@ import ResourcePage from "./pages/ResourcePage";
 import BuildingPage from "./pages/BuildingPage";
 import TechPage from "./pages/TechPage";
 import Footer from "./components/Footer";
+
 function App() {
 
   return (
     <div className="App">
-
+        <Theme preset={presetGpnDefault}>
         <Router>
             <Header />
             <Routes>
@@ -27,6 +29,7 @@ function App() {
             </Routes>
             <Footer />
         </Router>
+        </Theme>
     </div>
   );
 }

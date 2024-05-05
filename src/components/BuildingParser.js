@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Tilt from 'react-parallax-tilt';
+import {Text} from '@consta/uikit/TextDeprecated';
 function BuildingParser() {
     const [buildings, setBuilding] = useState([]);
     const [selectedBuilding, setSelectedBuilding] = useState(null);
@@ -19,14 +20,17 @@ function BuildingParser() {
     return (
         <div className="parser-content-page">
             <div >
-                <h1 style={{color:'white'}}>Список ресурсов</h1>
+                {/*<h1 style={{color:'white'}}>Здания</h1>*/}
+                <Text view="normal" size="3xl" weight="black" spacing="l">Здания</Text>
                 <div className="parser-content">
 
                     {buildings.map(building => (
                         <Tilt>
                             <div className="parser-content-block" key={building.id} onClick={()=>ModalWind(building)}>
                                 <img src={building.icon} alt={building.name}/>
-                                <p style={{color: 'white'}}>{building.name.split('|')[0]}</p>
+                                {/*<p style={{color: 'white'}}>{building.name.split('|')[0]}</p>*/}
+                                <Text view="normal" size="xl" font="mono" weight="semibold"
+                                      spacing="m" align="center">{building.name.split('|')[0]}</Text>
                             </div>
                         </Tilt>
                     ))}
