@@ -1,62 +1,68 @@
 import React, { useState, useEffect } from 'react';
-
+import Tilt from 'react-parallax-tilt';
 function BuildingParser() {
     const [buildings, setBuilding] = useState([]);
-    const [displayEl, setDisplayEl] = useState('none');
-    const [widthSize, setWidthSize] = useState('1920px');
     const [selectedBuilding, setSelectedBuilding] = useState(null);
+    const [showModal, setShowModal] = useState(false);
     useEffect(() => {
         fetch('https://eyefyre.github.io/civvapi/v1/ru/buildings/buildings.json')
             .then(response => response.json())
             .then(data => setBuilding(data));
     }, []);
-    const rightPanel = (building) =>{
-        setWidthSize('960px')
-        setDisplayEl('block')
-        setSelectedBuilding(building)
+    const ModalWind = (unit) =>{
+        setShowModal(true)
+        setSelectedBuilding(unit)
     }
-    const closeRightPanel = () => {
-        setDisplayEl('none')
-        setWidthSize('1920px')
+    const closeModalWind = ()=>{
+        setShowModal(false)
     }
     return (
         <div className="parser-content-page">
-            <div style={{width:widthSize}}>
+            <div >
                 <h1 style={{color:'white'}}>Список ресурсов</h1>
                 <div className="parser-content">
 
                     {buildings.map(building => (
-                        <div className="parser-content-block" key={building.id} onClick={()=>rightPanel(building)}>
-                            <img src={building.icon} alt={building.name}/>
-                            <p style={{color: 'white'}}>{building.name.split('|')[0]}</p>
-                        </div>
+                        <Tilt>
+                            <div className="parser-content-block" key={building.id} onClick={()=>ModalWind(building)}>
+                                <img src={building.icon} alt={building.name}/>
+                                <p style={{color: 'white'}}>{building.name.split('|')[0]}</p>
+                            </div>
+                        </Tilt>
                     ))}
                 </div>
             </div>
-            <div style={{display: displayEl}} className="parser-content-info">
-                <div className="parser-content-info-header">
-                    {selectedBuilding && (
-                        <div className="parser-content-info-header-gameinfo">
-                            <h2 style={{color: 'white'}}>{selectedBuilding.name.split('|')[0]}</h2>
-                            <img src={selectedBuilding.icon}/>
-                        </div>
+            {showModal &&
+                (
+                <div className="modal">
+                    <div className="modal-container">
+                        <div className="parser-content-info-header">
+                            {selectedBuilding && (
+                                <div className="parser-content-info-header-gameinfo">
+                                    <h2 style={{color: 'white'}}>{selectedBuilding.name.split('|')[0]}</h2>
+                                    <img src={selectedBuilding.icon}/>
+                                </div>
 
-                    )}
-                    <div>
-                        <button className="parser-content-info-header-exit" onClick={closeRightPanel}>X</button>
+                            )}
+                            <div>
+                                <button className="parser-content-info-header-exit" onClick={closeModalWind}>X</button>
+                            </div>
+                        </div>
+                        <div className="parser-content-info-content">
+                            {selectedBuilding && (
+                                <>
+                                    <h3 style={{color: 'white'}}>{selectedBuilding.game_info}</h3>
+                                    <h3 style={{color: 'white'}}>Стоимость: {selectedBuilding.cost.production} ед.
+                                        производства</h3>
+                                    <h3 style={{color: 'white'}}>Стоимость обслуживания: {selectedBuilding.gold_maintenance} ед.
+                                        золота</h3>
+                                    <h3 style={{color: 'white'}}>Совет: {selectedBuilding.strategy}</h3>
+                                </>
+                            )}
+                        </div>
                     </div>
                 </div>
-                <div className="parser-content-info-content">
-                    {/*{selectedResource && (*/}
-                    {/*    <div>*/}
-
-                    {/*        <p style={{color: 'white'}}>{selectedUnit.strategy}</p>*/}
-                    {/*        <h2 style={{color: 'white'}}>Перемещение: {selectedUnit.movement} клеток</h2>*/}
-                    {/*        <h2 style={{color: 'white'}}>Стоимость: {selectedUnit.cost.production} производста</h2>*/}
-                    {/*    </div>*/}
-                    {/*)}*/}
-                </div>
-            </div>
+                )}
         </div>
     );
 }

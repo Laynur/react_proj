@@ -123,6 +123,13 @@
 .parser-content-info-header-exit:hover{
     animation: colorChange 4s infinite;
 }
+.parser-content-nameandsearch{
+    display: flex;
+    margin-left: 15px;
+    margin-right: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
 @keyframes colorChange {
     0% {
         background-color: rgb(35, 97, 97); /* Красный цвет */

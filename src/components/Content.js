@@ -25,6 +25,7 @@ function Content(){
             <NavLink to="/buildingpage" className="content-block-blk content-block-blk-building">
                 <h1 className="content-block-blk-text">Здания</h1>
             </NavLink>
+
         </div>
     );
 }
