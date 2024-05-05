@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Tilt from 'react-parallax-tilt';
-import {Text} from "@consta/uikit/TextDeprecated";
+import {Text} from "@consta/uikit/Text";
 function ResourcesParser() {
     const [resources, setResources] = useState([]);
-
     const [selectedResource, setSelectedResource] = useState(null);
     const [showModal, setShowModal] = useState(false);
+    const [searchTerm, setSearchTerm] = useState('');
     useEffect(() => {
         fetch('https://eyefyre.github.io/civvapi/v1/ru/resources/resources.json')
             .then(response => response.json())
@@ -18,14 +18,24 @@ function ResourcesParser() {
     const closeModalWind = () =>{
         setShowModal(false)
     }
+    const filteredRes = resources.filter(resource =>
+        resource.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
     return (
         <div className="parser-content-page">
             <div>
-                {/*<h1 style={{color:'white'}}>Список ресурсов</h1>*/}
-                <Text view="normal" size="3xl" weight="black" spacing="l">Ресурсы</Text>
+                <div className="parser-content-nameandsearch">
+                    <Text view="normal" size="3xl" weight="black" spacing="l">Ресурсы</Text>
+                    <input
+                        className="parser-content-nameandsearch-search"
+                        placeholder="Поиск"
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                    />
+                </div>
                 <div className="parser-content">
 
-                    {resources.map(resource => (
+                    {filteredRes.map(resource => (
                         <Tilt>
                             <div className="parser-content-block" key={resource.id} onClick={()=>ModalWind(resource)}>
                                 <img src={resource.icon} alt={resource.name}/>

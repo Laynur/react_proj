@@ -95,6 +95,7 @@
 }
 .parser-content-page{
     display: flex;
+    flex-direction: column;
 }
 .parser-content-info-header{
     display: flex;
@@ -124,10 +125,20 @@
 }
 .parser-content-nameandsearch{
     display: flex;
+    margin-top: 20px;
     margin-left: 15px;
     margin-right: 15px;
     justify-content: space-between;
     align-items: center;
+}
+.parser-content-nameandsearch-search{
+    width: 250px;
+    height: 32px;
+    font-size: 21px;
+    border-radius: 60px;
+    border: 2px solid gray;
+    background: black;
+    color: whitesmoke;
 }
 @keyframes colorChange {
     0% {

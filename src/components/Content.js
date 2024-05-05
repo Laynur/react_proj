@@ -1,6 +1,6 @@
 import React from 'react'
 import {NavLink} from "react-router-dom";
-import {Text} from '@consta/uikit/TextDeprecated';
+import {Text} from '@consta/uikit/Text';
 function Content(){
     return (
         <div className="content-block">

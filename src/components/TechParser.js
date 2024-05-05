@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Tilt from 'react-parallax-tilt';
-import {Text} from '@consta/uikit/TextDeprecated';
+import {Text} from '@consta/uikit/Text';
 function TechParser() {
     const [techs, setTech] = useState([]);
     const [selectedTech, setSelectedTech] = useState(null);
     const [showModal, setShowModal] = useState(false);
+    const [searchTerm, setSearchTerm] = useState('');
     useEffect(() => {
         fetch('https://eyefyre.github.io/civvapi/v1/ru/tech/tech.json')
             .then(response => response.json())
@@ -20,20 +21,30 @@ function TechParser() {
     const eraList = ['Древнейший мир',
         'Античность','Средневековье','Новое время','Новейшее время',
     'Современность','Эпоха атома', 'Информационная эра']
+    const filteredTech = techs.filter(tech =>
+        tech.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
     return (
         <div className="parser-content-page">
             <div>
-
-                {/*<h1 style={{color:'white'}}>Технологии</h1>*/}
-                <Text view="normal" size="3xl" weight="black" spacing="l">Технологии</Text>
+                <div className="parser-content-nameandsearch">
+                    {/*<h1 style={{color:'white'}}>Технологии</h1>*/}
+                    <Text view="normal" size="3xl" weight="black" spacing="l">Технологии</Text>
+                    <input
+                        className="parser-content-nameandsearch-search"
+                        placeholder="Поиск"
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                    />
+                </div>
                 {eraList.map(era => (
-                    <div style={{border:'5px dashed cyan'}} key={era}>
-                        <div style={{display:'flex', justifyContent:'center'}}>
+                    <div style={{border: '5px dashed cyan'}} key={era}>
+                        <div style={{display: 'flex', justifyContent: 'center'}}>
                             {/*<h2 style={{color: 'white'}}>{era}</h2>*/}
                             <Text view="normal" size="2xl" weight="black" spacing="l">{era}</Text>
                         </div>
                         <div className="parser-content">
-                            {techs.filter(tech => tech.era.split('|')[0] === era).map(tech => (
+                            {filteredTech.filter(tech => tech.era.split('|')[0] === era).map(tech => (
                                 <Tilt>
                                     <div className="parser-content-block" key={tech.id} onClick={() => ModalWind(tech)}>
                                         <img src={tech.icon} alt={tech.name}/>

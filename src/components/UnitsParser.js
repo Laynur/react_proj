@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Tilt from 'react-parallax-tilt';
-import {Text} from "@consta/uikit/TextDeprecated";
+import {Text} from "@consta/uikit/Text";
 function UnitsParser() {
     const [units, setUnits] = useState([]);
     const [selectedUnit, setSelectedUnit] = useState(null);
     const [showModal, setShowModal] = useState(false);
+    const [searchTerm, setSearchTerm] = useState('');
     useEffect(() => {
         fetch('https://eyefyre.github.io/civvapi/v1/ru/units/units.json')
             .then(response => response.json())
@@ -17,26 +18,36 @@ function UnitsParser() {
     const closeModalWind = ()=>{
         setShowModal(false)
     }
+    const filteredUnits = units.filter(unit =>
+        unit.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
     return (
         <div className="parser-content-page">
-            <div >
-                {/*<h1 style={{color:'white'}}>Список Юнитов</h1>*/}
+
+            <div className="parser-content-nameandsearch">
                 <Text view="normal" size="3xl" weight="black" spacing="l">Юниты</Text>
-                <div className="parser-content">
-
-                    {units.map(unit => (
-                        <Tilt>
-                            <div className="parser-content-block" key={unit.id} onClick={() => ModalWind(unit)}>
-                                <img src={unit.icon} alt={unit.name}/>
-                                {/*<p style={{color: 'white'}}>{unit.name.split('|')[0]}</p>*/}
-                                <Text view="normal" size="xl" font="mono" weight="semibold"
-                                      spacing="m" align="center">{unit.name.split('|')[0]}</Text>
-
-                            </div>
-                        </Tilt>
-                    ))}
-                </div>
+                <input
+                    className="parser-content-nameandsearch-search"
+                    placeholder="Поиск"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                />
             </div>
+            <div className="parser-content">
+
+                {filteredUnits.map(unit => (
+                    <Tilt>
+                        <div className="parser-content-block" key={unit.id} onClick={() => ModalWind(unit)}>
+                            <img src={unit.icon} alt={unit.name}/>
+                            {/*<p style={{color: 'white'}}>{unit.name.split('|')[0]}</p>*/}
+                            <Text view="normal" size="xl" font="mono" weight="semibold"
+                                  spacing="m" align="center">{unit.name.split('|')[0]}</Text>
+
+                        </div>
+                    </Tilt>
+                ))}
+            </div>
+
             {showModal && (
                 <div className="modal">
                     <div className="modal-container">

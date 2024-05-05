@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Tilt from 'react-parallax-tilt';
-import {Text} from '@consta/uikit/TextDeprecated';
+import {Text} from '@consta/uikit/Text';
 function BuildingParser() {
     const [buildings, setBuilding] = useState([]);
     const [selectedBuilding, setSelectedBuilding] = useState(null);
     const [showModal, setShowModal] = useState(false);
+    const [searchTerm, setSearchTerm] = useState('');
     useEffect(() => {
         fetch('https://eyefyre.github.io/civvapi/v1/ru/buildings/buildings.json')
             .then(response => response.json())
@@ -17,14 +18,24 @@ function BuildingParser() {
     const closeModalWind = ()=>{
         setShowModal(false)
     }
+    const filteredBuild = buildings.filter(build =>
+        build.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
     return (
         <div className="parser-content-page">
             <div >
-                {/*<h1 style={{color:'white'}}>Здания</h1>*/}
-                <Text view="normal" size="3xl" weight="black" spacing="l">Здания</Text>
+                <div className="parser-content-nameandsearch">
+                    <Text view="normal" size="3xl" weight="black" spacing="l">Здания</Text>
+                    <input
+                        className="parser-content-nameandsearch-search"
+                        placeholder="Поиск"
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                    />
+                </div>
                 <div className="parser-content">
 
-                    {buildings.map(building => (
+                    {filteredBuild.map(building => (
                         <Tilt>
                             <div className="parser-content-block" key={building.id} onClick={()=>ModalWind(building)}>
                                 <img src={building.icon} alt={building.name}/>
