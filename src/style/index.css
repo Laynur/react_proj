@@ -7,23 +7,26 @@ body {
   -moz-osx-font-smoothing: grayscale;
   /*background: beige;*/
   /*background: #626495;*/
-  background: black;
+  /*background: black;*/
+  overflow-x: hidden;
+  background: #000000;
+  --gap: 5em;
+  --line: 1px;
+  --color: rgba(255, 255, 255, 0.2);
 
-  /*--s: 60px; !* control the size *!*/
-
-  /*--c:#1C2130 0 25%,#0000 0;*/
-  /*--p:0 0/calc(3*var(--s)) calc(2*var(--s));*/
-  /*background:*/
-  /*        conic-gradient(from -45deg at 75% 62.5%,var(--c)) var(--p),*/
-  /*        conic-gradient(from 135deg at 25% 37.5%,var(--c)) var(--p),*/
-  /*        repeating-conic-gradient(from 90deg,var(--c),#D14334 0 50%)*/
-  /*        0 0/var(--s) var(--s);*/
-
-
-
-
-
-
+  background-image: linear-gradient(
+          -90deg,
+          transparent calc(var(--gap) - var(--line)),
+          var(--color) calc(var(--gap) - var(--line) + 1px),
+          var(--color) var(--gap)
+  ),
+  linear-gradient(
+          0deg,
+          transparent calc(var(--gap) - var(--line)),
+          var(--color) calc(var(--gap) - var(--line) + 1px),
+          var(--color) var(--gap)
+  );
+  background-size: var(--gap) var(--gap);
 }
 p{
   color: white;

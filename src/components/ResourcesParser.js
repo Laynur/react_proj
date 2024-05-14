@@ -37,7 +37,7 @@ function ResourcesParser() {
 
                     {filteredRes.map(resource => (
                         <Tilt>
-                            <div className="parser-content-block" key={resource.id} onClick={()=>ModalWind(resource)}>
+                            <div className="parser-content-block" onClick={()=>ModalWind(resource)}>
                                 <img src={resource.icon} alt={resource.name}/>
                                 {/*<p style={{color: 'white'}}>{resource.name.split('|')[0]}</p>*/}
                                 <Text view="normal" size="xl" font="mono" weight="semibold"

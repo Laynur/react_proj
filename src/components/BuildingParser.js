@@ -37,7 +37,7 @@ function BuildingParser() {
 
                     {filteredBuild.map(building => (
                         <Tilt>
-                            <div className="parser-content-block" key={building.id} onClick={()=>ModalWind(building)}>
+                            <div className="parser-content-block" onClick={()=>ModalWind(building)}>
                                 <img src={building.icon} alt={building.name}/>
                                 {/*<p style={{color: 'white'}}>{building.name.split('|')[0]}</p>*/}
                                 <Text view="normal" size="xl" font="mono" weight="semibold"

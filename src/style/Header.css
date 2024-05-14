@@ -6,9 +6,9 @@
     align-items: center;
     background-image: url("/public/img/civ_header1.jpg");
     background-position: center;
-    border: 2px solid cyan; /* Измените цвет и толщину границы по желанию */
-    border-radius: 10px; /* Закругление углов, если нужно */
-    box-shadow: 0 0 20px 10px rgba(0, 255, 255, 0.5); /* Неоновая подсветка */
+    border: 2px solid cyan;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 10px rgba(0, 255, 255, 0.5);
 
 }
 

@@ -8,10 +8,13 @@ function CivilizationParser() {
     const [showModal, setShowModal] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
 
+    const [waitBar, setWaitBar] = useState(true);
+
     useEffect(() => {
         fetch('https://eyefyre.github.io/civvapi/v1/ru/civilizations/civilizations.json')
             .then(response => response.json())
-            .then(data => setCivilization(data));
+            .then(data => setCivilization(data))
+            .then(()=>{setWaitBar(false)});
     }, []);
 
     const ModalWind = (civilization) => {
@@ -39,9 +42,16 @@ function CivilizationParser() {
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
             </div>
+            {waitBar && (
+                <div className="loader">
+                    <div className="scanner">
+                        <span>Loading...</span>
+                    </div>
+                </div>
+            )}
             <div className="parser-content">
                 {filteredCivilizations.map(civilization => (
-                    <Tilt key={civilization.id}>
+                    <Tilt >
                         <div
                             className="parser-content-block"
                             onClick={() => ModalWind(civilization)}

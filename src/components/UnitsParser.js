@@ -37,7 +37,7 @@ function UnitsParser() {
 
                 {filteredUnits.map(unit => (
                     <Tilt>
-                        <div className="parser-content-block" key={unit.id} onClick={() => ModalWind(unit)}>
+                        <div className="parser-content-block" onClick={() => ModalWind(unit)}>
                             <img src={unit.icon} alt={unit.name}/>
                             {/*<p style={{color: 'white'}}>{unit.name.split('|')[0]}</p>*/}
                             <Text view="normal" size="xl" font="mono" weight="semibold"

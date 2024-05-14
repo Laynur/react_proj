@@ -8,7 +8,7 @@ function Header(){
             <NavLink to="/" className="header-logo">
                 <img className="header-logo headimgs" src={headerimagePath} alt="logo"/>
             </NavLink>
-            {/*<input className="input-container" placeholder="Search..."></input>*/}
+
         </div>
     );
 }

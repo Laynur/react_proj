@@ -19,13 +19,29 @@
     padding: 10px;
     width: 1920px;
     height: 780px;
-    /*background: #124158;*/
-    /*background: #626495;*/
-    background-image: url("/public/img/civ_content.jpg");
-    background-color: rgba(0,0,0,0.7);
-    background-blend-mode: multiply;
+    /*background-image: url("/public/img/civ_content.jpg");*/
+    /*background-color: rgba(0,0,0,0.7);*/
+    /*background-blend-mode: multiply;*/
     display: flex;
     flex-direction: column;
+    background: #000000;
+    --gap: 5em;
+    --line: 1px;
+    --color: rgba(255, 255, 255, 0.2);
+
+    background-image: linear-gradient(
+            -90deg,
+            transparent calc(var(--gap) - var(--line)),
+            var(--color) calc(var(--gap) - var(--line) + 1px),
+            var(--color) var(--gap)
+    ),
+    linear-gradient(
+            0deg,
+            transparent calc(var(--gap) - var(--line)),
+            var(--color) calc(var(--gap) - var(--line) + 1px),
+            var(--color) var(--gap)
+    );
+    background-size: var(--gap) var(--gap);
 
 }
 .content-block-blk{
@@ -139,6 +155,7 @@
     border: 2px solid gray;
     background: black;
     color: whitesmoke;
+    padding: 10px;
 }
 @keyframes colorChange {
     0% {
@@ -247,4 +264,40 @@
     }
 }
 
+.scanner span {
+    color: transparent;
+    font-size: 1.4rem;
+    position: relative;
+    overflow: hidden;
+}
 
+.scanner span::before {
+    content: "Loading...";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    border-right: 4px solid #17FEFF;
+    overflow: hidden;
+    color: #17FEFF;
+    animation: load91371 2s linear infinite;
+}
+
+@keyframes load91371 {
+    0%, 10%, 100% {
+        width: 0;
+    }
+
+    10%,20%,30%,40%,50%,60%,70%,80%,90%,100% {
+        border-right-color: transparent;
+    }
+
+    11%,21%,31%,41%,51%,61%,71%,81%,91% {
+        border-right-color: #17FEFF;
+    }
+
+    60%, 80% {
+        width: 100%;
+    }
+}

@@ -38,7 +38,7 @@ function TechParser() {
                     />
                 </div>
                 {eraList.map(era => (
-                    <div style={{border: '5px dashed cyan'}} key={era}>
+                    <div style={{border: '5px dashed cyan'}} >
                         <div style={{display: 'flex', justifyContent: 'center'}}>
                             {/*<h2 style={{color: 'white'}}>{era}</h2>*/}
                             <Text view="normal" size="2xl" weight="black" spacing="l">{era}</Text>
@@ -46,7 +46,7 @@ function TechParser() {
                         <div className="parser-content">
                             {filteredTech.filter(tech => tech.era.split('|')[0] === era).map(tech => (
                                 <Tilt>
-                                    <div className="parser-content-block" key={tech.id} onClick={() => ModalWind(tech)}>
+                                    <div className="parser-content-block" onClick={() => ModalWind(tech)}>
                                         <img src={tech.icon} alt={tech.name}/>
                                         {/*<p style={{color: 'white'}}>{tech.name.split('|')[0]}</p>*/}
                                         <Text view="normal" size="xl" font="mono" weight="semibold"
@@ -85,7 +85,7 @@ function TechParser() {
                                     <h3 style={{color: 'white'}}>Стоимость: {selectedTech.cost} производста</h3>
                                     <h3 style={{color: 'white'}}>Открывает следующие технологии:</h3>
                                     {selectedTech.tech_unlocks.map(tech => (
-                                        <ul key={tech.name} style={{color: 'white'}}>
+                                        <ul style={{color: 'white'}}>
                                             <h3>
                                             - {tech.name.split('|')[0]}
                                             </h3>
@@ -93,7 +93,7 @@ function TechParser() {
                                     ))}
                                     <h3 style={{color: 'white'}}>Открывает следующие юниты:</h3>
                                     {selectedTech.unit_unlocks.map(unit => (
-                                        <ul key={unit.name} style={{color: 'white'}}>
+                                        <ul  style={{color: 'white'}}>
                                             <h3>
                                                 - {unit.name.split('|')[0]}
                                             </h3>
