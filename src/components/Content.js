@@ -3,29 +3,28 @@ import {NavLink} from "react-router-dom";
 import {Text} from '@consta/uikit/Text';
 function Content(){
     return (
-        <div className="content-block">
-            {/*<div className="content-block-blk content-block-blk-civ">*/}
-            {/*    <h1 className="content-block-blk-text">Цивилизации</h1>*/}
-            {/*</div>*/}
+        <div className="content-block" style={{ '--home-background': `url(${process.env.PUBLIC_URL}/img/civ_content.jpg)` }}>
+            <div className="content-intro">
+                <p className="content-eyebrow">Civilization V · справочник</p>
+                <h1 className="content-title">История начинается с тебя</h1>
+                <p className="content-description">
+                    Изучай державы, технологии и юниты, чтобы спланировать путь к победе.
+                </p>
+            </div>
             <NavLink to="/civpage" className="content-block-blk content-block-blk-civ">
-                {/*<h1 className="content-block-blk-text">Цивилизации</h1>*/}
-                <Text size="3xl" view="normal" weight="black" cursor="pointer" className="content-block-blk-text">Цивилизации</Text>
+                <Text view="normal" weight="black" cursor="pointer" className="content-block-blk-text">Цивилизации</Text>
             </NavLink>
             <NavLink to="/unitpage" className="content-block-blk content-block-blk-unit">
-                {/*<h1 className="content-block-blk-text">Юниты</h1>*/}
-                <Text size="3xl" view="normal" weight="black" cursor="pointer" className="content-block-blk-text">Юниты</Text>
+                <Text view="normal" weight="black" cursor="pointer" className="content-block-blk-text">Юниты</Text>
             </NavLink>
             <NavLink to="/resourcepage" className="content-block-blk content-block-blk-resour">
-                {/*<h1 className="content-block-blk-text">Ресурсы</h1>*/}
-                <Text size="3xl" view="normal" weight="black" cursor="pointer" className="content-block-blk-text">Ресурсы</Text>
+                <Text view="normal" weight="black" cursor="pointer" className="content-block-blk-text">Ресурсы</Text>
             </NavLink>
             <NavLink to="/techpage" className="content-block-blk content-block-blk-tech">
-                {/*<h1 className="content-block-blk-text">Технологии</h1>*/}
-                <Text size="3xl" view="normal" weight="black" cursor="pointer" className="content-block-blk-text">Технологии</Text>
+                <Text view="normal" weight="black" cursor="pointer" className="content-block-blk-text">Технологии</Text>
             </NavLink>
             <NavLink to="/buildingpage" className="content-block-blk content-block-blk-building">
-                {/*<h1 className="content-block-blk-text">Здания</h1>*/}
-                <Text size="3xl" view="normal" weight="black" cursor="pointer" className="content-block-blk-text">Здания</Text>
+                <Text view="normal" weight="black" cursor="pointer" className="content-block-blk-text">Здания</Text>
             </NavLink>
 
         </div>

@@ -45,13 +45,13 @@ function TechParser() {
                         </div>
                         <div className="parser-content">
                             {filteredTech.filter(tech => tech.era.split('|')[0] === era).map(tech => (
-                                <Tilt>
-                                    <div className="parser-content-block" key={tech.id} onClick={() => ModalWind(tech)}>
+                                <Tilt key={tech.id}>
+                                    <button type="button" className="parser-content-block" onClick={() => ModalWind(tech)}>
                                         <img src={tech.icon} alt={tech.name}/>
                                         {/*<p style={{color: 'white'}}>{tech.name.split('|')[0]}</p>*/}
                                         <Text view="normal" size="xl" font="mono" weight="semibold"
                                               spacing="m" align="center">{tech.name.split('|')[0]}</Text>
-                                    </div>
+                                    </button>
                                 </Tilt>
                             ))}
                         </div>
@@ -66,7 +66,7 @@ function TechParser() {
 
                                 <div className="parser-content-info-header-gameinfo">
                                     <h2 style={{color: 'white'}}>{selectedTech.name.split('|')[0]}</h2>
-                                    <img src={selectedTech.icon}/>
+                                    <img src={selectedTech.icon} alt={selectedTech.name}/>
                                 </div>
 
                             )}

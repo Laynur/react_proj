@@ -36,14 +36,14 @@ function UnitsParser() {
             <div className="parser-content">
 
                 {filteredUnits.map(unit => (
-                    <Tilt>
-                        <div className="parser-content-block" key={unit.id} onClick={() => ModalWind(unit)}>
+                    <Tilt key={unit.id}>
+                        <button type="button" className="parser-content-block" onClick={() => ModalWind(unit)}>
                             <img src={unit.icon} alt={unit.name}/>
                             {/*<p style={{color: 'white'}}>{unit.name.split('|')[0]}</p>*/}
                             <Text view="normal" size="xl" font="mono" weight="semibold"
                                   spacing="m" align="center">{unit.name.split('|')[0]}</Text>
 
-                        </div>
+                        </button>
                     </Tilt>
                 ))}
             </div>
@@ -55,7 +55,7 @@ function UnitsParser() {
                             {selectedUnit && (
                                 <div className="parser-content-info-header-gameinfo">
                                     <h2 style={{color: 'white'}}>{selectedUnit.name.split('|')[0]}</h2>
-                                    <img src={selectedUnit.icon}/>
+                                    <img src={selectedUnit.icon} alt={selectedUnit.name}/>
                                 </div>
                             )}
                             <div>

@@ -36,13 +36,13 @@ function ResourcesParser() {
                 <div className="parser-content">
 
                     {filteredRes.map(resource => (
-                        <Tilt>
-                            <div className="parser-content-block" key={resource.id} onClick={()=>ModalWind(resource)}>
+                        <Tilt key={resource.id}>
+                            <button type="button" className="parser-content-block" onClick={()=>ModalWind(resource)}>
                                 <img src={resource.icon} alt={resource.name}/>
                                 {/*<p style={{color: 'white'}}>{resource.name.split('|')[0]}</p>*/}
                                 <Text view="normal" size="xl" font="mono" weight="semibold"
                                       spacing="m" align="center">{resource.name.split('|')[0]}</Text>
-                            </div>
+                            </button>
                         </Tilt>
                     ))}
                 </div>
@@ -55,7 +55,7 @@ function ResourcesParser() {
                             {selectedResource && selectedResource.name != null && (
                                 <div className="parser-content-info-header-gameinfo">
                                     <h2 style={{color: 'white'}}>{selectedResource.name.split('|')[0]}</h2>
-                                    <img src={selectedResource.icon}/>
+                                    <img src={selectedResource.icon} alt={selectedResource.name}/>
                                 </div>
 
                             )}

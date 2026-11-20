@@ -42,7 +42,8 @@ function CivilizationParser() {
             <div className="parser-content">
                 {filteredCivilizations.map(civilization => (
                     <Tilt key={civilization.id}>
-                        <div
+                        <button
+                            type="button"
                             className="parser-content-block"
                             onClick={() => ModalWind(civilization)}
                         >
@@ -57,7 +58,7 @@ function CivilizationParser() {
                             >
                                 {civilization.name.split('|')[0]}
                             </Text>
-                        </div>
+                        </button>
                     </Tilt>
                 ))}
             </div>

@@ -36,13 +36,13 @@ function BuildingParser() {
                 <div className="parser-content">
 
                     {filteredBuild.map(building => (
-                        <Tilt>
-                            <div className="parser-content-block" key={building.id} onClick={()=>ModalWind(building)}>
+                        <Tilt key={building.id}>
+                            <button type="button" className="parser-content-block" onClick={()=>ModalWind(building)}>
                                 <img src={building.icon} alt={building.name}/>
                                 {/*<p style={{color: 'white'}}>{building.name.split('|')[0]}</p>*/}
                                 <Text view="normal" size="xl" font="mono" weight="semibold"
                                       spacing="m" align="center">{building.name.split('|')[0]}</Text>
-                            </div>
+                            </button>
                         </Tilt>
                     ))}
                 </div>
@@ -55,7 +55,7 @@ function BuildingParser() {
                             {selectedBuilding && (
                                 <div className="parser-content-info-header-gameinfo">
                                     <h2 style={{color: 'white'}}>{selectedBuilding.name.split('|')[0]}</h2>
-                                    <img src={selectedBuilding.icon}/>
+                                    <img src={selectedBuilding.icon} alt={selectedBuilding.name}/>
                                 </div>
 
                             )}

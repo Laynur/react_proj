@@ -1,14 +1,15 @@
-.footer{
-    width: 1920px;
-    height: 230px;
-    display: flex;
-    align-items: center;
-    background-image: url("/public/img/civ_header1.jpg");
-    background-position: bottom;
-    border: 2px solid cyan; /* Измените цвет и толщину границы по желанию */
-    border-radius: 10px; /* Закругление углов, если нужно */
-    box-shadow: 0 0 20px 10px rgba(0, 255, 255, 0.5); /* Неоновая подсветка */
+.footer {
+  width: 100%;
+  min-height: 112px;
+  margin-top: auto;
+  padding: 22px clamp(20px, 5vw, 72px);
+  display: flex;
+  align-items: center;
+  border-top: 1px solid rgba(214, 174, 98, .28);
+  background: linear-gradient(90deg, rgba(8, 11, 18, .94), rgba(8, 11, 18, .76)), var(--footer-background) center / cover;
 }
-.footer-info{
-    margin-left: 20px;
-}
+
+.footer-info { display: flex; flex-wrap: wrap; gap: 6px 28px; }
+.footer-info > * { color: #d8d3c8 !important; }
+.footer-info a { color: #d6ae62 !important; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.footer-info a:hover { color: #f4d18d !important; }
