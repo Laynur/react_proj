@@ -24,7 +24,7 @@
 .content-block {
   position: relative;
   isolation: isolate;
-  width: min(100%, 1440px);
+  width: var(--page-panel-width);
   min-height: 620px;
   margin: 0 auto;
   padding: clamp(28px, 6vw, 76px) clamp(20px, 7vw, 96px);
@@ -191,7 +191,7 @@
 .quiz-finished strong { color: var(--accent); font-size: 24px; }
 
 .parser-content-page {
-  width: min(100%, 1440px);
+  width: var(--page-panel-width);
   min-height: 56vh;
   margin: 0 auto;
   padding: clamp(24px, 4vw, 48px) clamp(16px, 4vw, 48px) 64px;

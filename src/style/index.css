@@ -4,6 +4,7 @@
 
 html {
   min-width: 320px;
+  --page-panel-width: min(calc(100% - 32px), 1440px);
   color-scheme: dark;
   --page-bg: #182230;
   --text-primary: #f6f2e9;
