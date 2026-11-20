@@ -5,16 +5,16 @@
 html {
   min-width: 320px;
   color-scheme: dark;
-  --page-bg: #080b12;
-  --text-primary: #f3efe6;
-  --text-muted: #c1c4ca;
-  --surface: rgba(14, 18, 27, .88);
-  --surface-solid: #10151f;
-  --surface-raised: #151b27;
-  --surface-subtle: rgba(255, 255, 255, .045);
-  --border-color: rgba(214, 174, 98, .28);
-  --accent: #d6ae62;
-  --shadow-color: rgba(0, 0, 0, .34);
+  --page-bg: #182230;
+  --text-primary: #f6f2e9;
+  --text-muted: #cbd2dc;
+  --surface: rgba(31, 44, 60, .9);
+  --surface-solid: #202c3a;
+  --surface-raised: #2c3b4e;
+  --surface-subtle: rgba(255, 255, 255, .075);
+  --border-color: rgba(214, 174, 98, .36);
+  --accent: #e0bd78;
+  --shadow-color: rgba(0, 0, 0, .3);
   background: var(--page-bg);
 }
 
