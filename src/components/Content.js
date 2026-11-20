@@ -1,9 +1,21 @@
-import React from 'react'
-import {NavLink} from "react-router-dom";
-import {Text} from '@consta/uikit/Text';
-function Content(){
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import QuizSection from './QuizSection';
+
+const sections = [
+    { path: '/civpage', title: 'Цивилизации', description: 'Державы и их лидеры', className: 'civ' },
+    { path: '/unitpage', title: 'Юниты', description: 'Армия и флот', className: 'unit' },
+    { path: '/resourcepage', title: 'Ресурсы', description: 'Богатства мира', className: 'resour' },
+    { path: '/techpage', title: 'Технологии', description: 'Путь через эпохи', className: 'tech' },
+    { path: '/buildingpage', title: 'Здания', description: 'Города и чудеса', className: 'building' },
+];
+
+function Content() {
     return (
-        <div className="content-block" style={{ '--home-background': `url(${process.env.PUBLIC_URL}/img/civ_content.jpg)` }}>
+        <main
+            className="content-block"
+            style={{ '--home-background': `url(${process.env.PUBLIC_URL}/img/civ_content.jpg)` }}
+        >
             <div className="content-intro">
                 <p className="content-eyebrow">Civilization V · справочник</p>
                 <h1 className="content-title">История начинается с тебя</h1>
@@ -11,23 +23,25 @@ function Content(){
                     Изучай державы, технологии и юниты, чтобы спланировать путь к победе.
                 </p>
             </div>
-            <NavLink to="/civpage" className="content-block-blk content-block-blk-civ">
-                <Text view="normal" weight="black" cursor="pointer" className="content-block-blk-text">Цивилизации</Text>
-            </NavLink>
-            <NavLink to="/unitpage" className="content-block-blk content-block-blk-unit">
-                <Text view="normal" weight="black" cursor="pointer" className="content-block-blk-text">Юниты</Text>
-            </NavLink>
-            <NavLink to="/resourcepage" className="content-block-blk content-block-blk-resour">
-                <Text view="normal" weight="black" cursor="pointer" className="content-block-blk-text">Ресурсы</Text>
-            </NavLink>
-            <NavLink to="/techpage" className="content-block-blk content-block-blk-tech">
-                <Text view="normal" weight="black" cursor="pointer" className="content-block-blk-text">Технологии</Text>
-            </NavLink>
-            <NavLink to="/buildingpage" className="content-block-blk content-block-blk-building">
-                <Text view="normal" weight="black" cursor="pointer" className="content-block-blk-text">Здания</Text>
-            </NavLink>
 
-        </div>
+            <nav className="content-menu" aria-label="Разделы справочника">
+                {sections.map(section => (
+                    <NavLink
+                        key={section.path}
+                        to={section.path}
+                        className={`content-block-blk content-block-blk-${section.className} liquid-glass`}
+                    >
+                        <span className="content-block-blk-copy">
+                            <span className="content-block-blk-text">{section.title}</span>
+                            <span className="content-block-blk-description">{section.description}</span>
+                        </span>
+                        <span className="content-block-blk-arrow" aria-hidden="true">↗</span>
+                    </NavLink>
+                ))}
+            </nav>
+
+            <QuizSection />
+        </main>
     );
 }
 
