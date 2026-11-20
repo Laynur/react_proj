@@ -1,6 +1,5 @@
 import './style/App.css';
 import './style/Header.css';
-import './style/Footer.css';
 import {Theme,presetGpnDefault} from "@consta/uikit/Theme";
 import {HashRouter as Router, Route, Routes} from 'react-router-dom';
 import Header from './components/Header';
@@ -10,7 +9,6 @@ import UnitPage from "./pages/UnitPage";
 import ResourcePage from "./pages/ResourcePage";
 import BuildingPage from "./pages/BuildingPage";
 import TechPage from "./pages/TechPage";
-import Footer from "./components/Footer";
 import React, { useEffect, useState } from 'react';
 
 function App() {
@@ -34,7 +32,6 @@ function App() {
                 <Route path="/techpage" element={<TechPage/>}/>
                 <Route path="/buildingpage" element={<BuildingPage/>}/>
             </Routes>
-            <Footer />
         </Router>
         </Theme>
     </div>
