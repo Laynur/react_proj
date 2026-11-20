@@ -2,7 +2,7 @@ import './style/App.css';
 import './style/Header.css';
 import './style/Footer.css';
 import {Theme,presetGpnDefault} from "@consta/uikit/Theme";
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import {HashRouter as Router, Route, Routes} from 'react-router-dom';
 import Header from './components/Header';
 import Content from "./components/Content";
 import CivPage from "./pages/CivPage";
