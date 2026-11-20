@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 const headerimagePath = `${process.env.PUBLIC_URL}/img/civ5_logo.png`;
 function Header({ theme, onToggleTheme }){
     return (
-        <div className="header" style={{ '--header-background': `url(${process.env.PUBLIC_URL}/img/civ_header1.jpg)` }}>
+        <div className="header">
             <NavLink to="/" className="header-logo">
                 <img className="headimgs" src={headerimagePath} alt="Civilization V — на главную"/>
             </NavLink>
