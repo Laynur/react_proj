@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Tilt from 'react-parallax-tilt';
 import {Text} from "@consta/uikit/Text";
+import Modal from './Modal';
 function UnitsParser() {
     const [units, setUnits] = useState([]);
     const [selectedUnit, setSelectedUnit] = useState(null);
@@ -48,43 +49,16 @@ function UnitsParser() {
                 ))}
             </div>
 
-            {showModal && (
-                <div className="modal">
-                    <div className="modal-container">
-                        <div className="parser-content-info-header">
-                            {selectedUnit && (
-                                <div className="parser-content-info-header-gameinfo">
-                                    <h2 style={{color: 'white'}}>{selectedUnit.name.split('|')[0]}</h2>
-                                    <img src={selectedUnit.icon} alt={selectedUnit.name}/>
-                                </div>
-                            )}
-                            <div>
-                                <button className="parser-content-info-header-exit" onClick={closeModalWind}>X</button>
-                            </div>
-                        </div>
-                        <div className="parser-content-info-content">
-                            {selectedUnit && (
-                                <>
-                                    <div>
-                                        <h3 style={{color:'white'}}>{selectedUnit.game_info}</h3>
-                                    </div>
-                                    <div>
-                                        <h3 style={{color:'white'}}>Стоимость: {selectedUnit.cost.production} ед. производства</h3>
-                                    </div>
-                                    <div>
-                                        <h3 style={{color:'white'}}>Количество перемещений: {selectedUnit.movement}</h3>
-                                    </div>
-                                    <div>
-                                        <h3 style={{color:'white'}}>Совет: {selectedUnit.strategy}</h3>
-                                    </div>
-                                    <div>
-                                        <h3 style={{color:'white'}}>Необходимо исследовать: {selectedUnit.prereq_tech.name.split('|')[0]}</h3>
-                                    </div>
-                                </>
-                            )}
-                        </div>
-                    </div>
-                </div>
+            {showModal && selectedUnit && (
+                <Modal title={selectedUnit.name.split('|')[0]} icon={selectedUnit.icon} onClose={closeModalWind}>
+                    <section className="modal-section"><p>{selectedUnit.game_info}</p></section>
+                    <section className="modal-facts">
+                        <div><span>Стоимость</span><strong>{selectedUnit.cost.production} ед. производства</strong></div>
+                        <div><span>Перемещение</span><strong>{selectedUnit.movement}</strong></div>
+                        <div><span>Требуемая технология</span><strong>{selectedUnit.prereq_tech.name.split('|')[0]}</strong></div>
+                    </section>
+                    <section className="modal-section"><h3>Совет</h3><p>{selectedUnit.strategy}</p></section>
+                </Modal>
             )}
         </div>
     );

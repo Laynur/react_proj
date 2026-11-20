@@ -4,15 +4,40 @@
 
 html {
   min-width: 320px;
-  background: #080b12;
+  color-scheme: dark;
+  --page-bg: #080b12;
+  --text-primary: #f3efe6;
+  --text-muted: #c1c4ca;
+  --surface: rgba(14, 18, 27, .88);
+  --surface-solid: #10151f;
+  --surface-raised: #151b27;
+  --surface-subtle: rgba(255, 255, 255, .045);
+  --border-color: rgba(214, 174, 98, .28);
+  --accent: #d6ae62;
+  --shadow-color: rgba(0, 0, 0, .34);
+  background: var(--page-bg);
+}
+
+html[data-theme='light'] {
+  color-scheme: light;
+  --page-bg: #edf1f5;
+  --text-primary: #17202b;
+  --text-muted: #566272;
+  --surface: rgba(255, 255, 255, .76);
+  --surface-solid: #f8fafc;
+  --surface-raised: #ffffff;
+  --surface-subtle: rgba(21, 37, 55, .055);
+  --border-color: rgba(112, 128, 148, .28);
+  --accent: #9a6b1b;
+  --shadow-color: rgba(33, 46, 61, .16);
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  color: #f3efe6;
-  background: #080b12;
+  color: var(--text-primary);
+  background: var(--page-bg);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;

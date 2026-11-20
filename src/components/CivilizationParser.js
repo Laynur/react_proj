@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Tilt from 'react-parallax-tilt';
 import { Text } from '@consta/uikit/Text';
+import Modal from './Modal';
 
 function CivilizationParser() {
     const [civilizations, setCivilization] = useState([]);
@@ -63,50 +64,32 @@ function CivilizationParser() {
                 ))}
             </div>
 
-            {showModal && (
-                <div className="modal">
-                    <div className="modal-container">
-                        <div className="parser-content-info-header">
-                            {selectedCivilization && (
-                                <div className="parser-content-info-header-gameinfo">
-                                    <h2 style={{ color: 'white' }}>
-                                        {selectedCivilization.name.split('|')[0]}
-                                    </h2>
-                                    <img src={selectedCivilization.icon} alt={selectedCivilization.name} />
-                                </div>
-                            )}
-                            <div>
-                                <button className="parser-content-info-header-exit" onClick={closeModalWind}>
-                                    X
-                                </button>
-                            </div>
+            {showModal && selectedCivilization && (
+                <Modal
+                    title={selectedCivilization.name.split('|')[0]}
+                    icon={selectedCivilization.icon}
+                    onClose={closeModalWind}
+                >
+                    <section className="modal-section modal-leader">
+                        <div>
+                            <h3>Лидер</h3>
+                            <h2>{selectedCivilization.leader.name}</h2>
+                            <p>{selectedCivilization.leader.lived}</p>
+                            <img src={selectedCivilization.leader.icon} alt={selectedCivilization.leader.name} />
                         </div>
-                        <div className="parser-content-info-content">
-                            {selectedCivilization && (
-                                <>
-                                    <div className="parser-content-info-content-leaderinfo">
-                                        <div className="parser-content-info-content-leaderinfo_name_img">
-                                            <h2 style={{ color: 'white' }}>Лидер: {selectedCivilization.leader.name}</h2>
-                                            <img src={selectedCivilization.leader.icon} alt={selectedCivilization.leader.name} />
-                                            <h3 style={{ color: 'white' }}>Годы жизни: {selectedCivilization.leader.lived}</h3>
-                                        </div>
-                                        <div className="parser-content-info-content-leaderinfo_title">
-                                            <h3 style={{ color: 'white' }}>{selectedCivilization.leader.titles[0]}</h3>
-                                            <h3 style={{ color: 'white' }}>{selectedCivilization.leader.titles[1]}</h3>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h3 style={{ color: 'white' }}>{selectedCivilization.dawn_of_man}</h3>
-                                    </div>
-                                    <div>
-                                        <h2 style={{ color: 'white' }}>Города:</h2>
-                                        <h3 style={{ color: 'white' }}>{selectedCivilization.city_names.join(', ')}</h3>
-                                    </div>
-                                </>
-                            )}
+                        <div className="modal-facts">
+                            {selectedCivilization.leader.titles.filter(Boolean).map(title => <p key={title}>{title}</p>)}
                         </div>
-                    </div>
-                </div>
+                    </section>
+                    <section className="modal-section">
+                        <h3>История державы</h3>
+                        <p>{selectedCivilization.dawn_of_man}</p>
+                    </section>
+                    <section className="modal-section">
+                        <h3>Города</h3>
+                        <p>{selectedCivilization.city_names.join(', ')}</p>
+                    </section>
+                </Modal>
             )}
         </div>
     );
