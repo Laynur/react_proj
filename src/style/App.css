@@ -197,6 +197,12 @@
   padding: clamp(24px, 4vw, 48px) clamp(16px, 4vw, 48px) 64px;
 }
 
+.parser-status { grid-column: 1 / -1; margin: 8px 0; color: var(--text-muted); }
+.parser-error { margin: 18px 0; padding: 18px 20px; border: 1px solid rgba(229, 109, 120, .4); border-radius: 14px; background: rgba(202, 58, 72, .1); }
+.parser-error p { margin: 0 0 12px; color: var(--text-primary); line-height: 1.5; }
+.parser-error button { padding: 9px 14px; border: 1px solid var(--border-color); border-radius: 999px; background: var(--surface-raised); color: var(--text-primary); cursor: pointer; }
+.parser-error button:hover { border-color: var(--accent); }
+
 .parser-content-nameandsearch {
   position: sticky;
   z-index: 5;
