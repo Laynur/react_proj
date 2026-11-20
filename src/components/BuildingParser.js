@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Tilt from 'react-parallax-tilt';
 import { Text } from '@consta/uikit/Text';
 import Modal from './Modal';
+import LibraryTile from './LibraryTile';
 
 function BuildingParser() {
     const [buildings, setBuildings] = useState([]);
@@ -27,10 +28,15 @@ function BuildingParser() {
             <div className="parser-content">
                 {filteredBuildings.map(building => (
                     <Tilt key={building.id}>
-                        <button type="button" className="parser-content-block" onClick={() => setSelectedBuilding(building)}>
-                            <img src={building.icon} alt={building.name} />
-                            <Text view="normal" size="xl" font="mono" weight="semibold" spacing="m" align="center">{building.name.split('|')[0]}</Text>
-                        </button>
+                        <LibraryTile
+                            title={building.name.split('|')[0]}
+                            icon={building.icon}
+                            detail={[
+                                building.cost?.production != null ? `${building.cost.production} пр-ва` : null,
+                                building.gold_maintenance != null ? `${building.gold_maintenance} золота/ход` : null,
+                            ].filter(Boolean).join(' · ')}
+                            onClick={() => setSelectedBuilding(building)}
+                        />
                     </Tilt>
                 ))}
             </div>

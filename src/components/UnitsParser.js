@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Tilt from 'react-parallax-tilt';
 import {Text} from "@consta/uikit/Text";
 import Modal from './Modal';
+import LibraryTile from './LibraryTile';
 function UnitsParser() {
     const [units, setUnits] = useState([]);
     const [selectedUnit, setSelectedUnit] = useState(null);
@@ -38,13 +39,15 @@ function UnitsParser() {
 
                 {filteredUnits.map(unit => (
                     <Tilt key={unit.id}>
-                        <button type="button" className="parser-content-block" onClick={() => ModalWind(unit)}>
-                            <img src={unit.icon} alt={unit.name}/>
-                            {/*<p style={{color: 'white'}}>{unit.name.split('|')[0]}</p>*/}
-                            <Text view="normal" size="xl" font="mono" weight="semibold"
-                                  spacing="m" align="center">{unit.name.split('|')[0]}</Text>
-
-                        </button>
+                        <LibraryTile
+                            title={unit.name.split('|')[0]}
+                            icon={unit.icon}
+                            detail={[
+                                unit.cost?.production != null ? `${unit.cost.production} пр-ва` : null,
+                                unit.movement != null ? `${unit.movement} ход.` : null,
+                            ].filter(Boolean).join(' · ') || unit.game_info}
+                            onClick={() => ModalWind(unit)}
+                        />
                     </Tilt>
                 ))}
             </div>

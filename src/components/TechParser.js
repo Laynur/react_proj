@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Tilt from 'react-parallax-tilt';
 import { Text } from '@consta/uikit/Text';
 import Modal from './Modal';
+import LibraryTile from './LibraryTile';
 
 const eras = ['Древнейший мир', 'Античность', 'Средневековье', 'Новое время', 'Новейшее время', 'Современность', 'Эпоха атома', 'Информационная эра'];
 
@@ -33,10 +34,12 @@ function TechParser() {
                         <div className="parser-content">
                             {eraTechs.map(tech => (
                                 <Tilt key={tech.id}>
-                                    <button type="button" className="parser-content-block" onClick={() => setSelectedTech(tech)}>
-                                        <img src={tech.icon} alt={tech.name} />
-                                        <Text view="normal" size="xl" font="mono" weight="semibold" spacing="m" align="center">{tech.name.split('|')[0]}</Text>
-                                    </button>
+                                    <LibraryTile
+                                        title={tech.name.split('|')[0]}
+                                        icon={tech.icon}
+                                        detail={[tech.era?.split('|')[0], tech.cost != null ? `${tech.cost} науки` : null].filter(Boolean).join(' · ')}
+                                        onClick={() => setSelectedTech(tech)}
+                                    />
                                 </Tilt>
                             ))}
                         </div>

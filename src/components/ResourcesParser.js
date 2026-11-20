@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Tilt from 'react-parallax-tilt';
 import { Text } from '@consta/uikit/Text';
 import Modal from './Modal';
+import LibraryTile from './LibraryTile';
 
 function ResourcesParser() {
     const [resources, setResources] = useState([]);
@@ -33,10 +34,12 @@ function ResourcesParser() {
             <div className="parser-content">
                 {filteredResources.map(resource => (
                     <Tilt key={resource.id}>
-                        <button type="button" className="parser-content-block" onClick={() => openModal(resource)}>
-                            <img src={resource.icon} alt={resource.name} />
-                            <Text view="normal" size="xl" font="mono" weight="semibold" spacing="m" align="center">{resource.name.split('|')[0]}</Text>
-                        </button>
+                        <LibraryTile
+                            title={resource.name.split('|')[0]}
+                            icon={resource.icon}
+                            detail={resource.game_info || resource.historical_info}
+                            onClick={() => openModal(resource)}
+                        />
                     </Tilt>
                 ))}
             </div>
