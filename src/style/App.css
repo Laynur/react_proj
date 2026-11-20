@@ -247,8 +247,11 @@
   margin-top: 20px;
 }
 
+.parser-content > * { min-width: 0; max-width: 100%; }
+
 .parser-content-block {
   width: 100%;
+  min-width: 0;
   min-height: 190px;
   padding: 18px 12px;
   display: flex;
@@ -272,7 +275,15 @@
   box-shadow: 0 12px 28px var(--shadow-color);
 }
 
-.parser-content-block > * { color: var(--text-primary) !important; }
+.parser-content-block > * {
+  max-width: 100%;
+  min-width: 0;
+  color: var(--text-primary) !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  line-height: 1.35;
+}
 
 .parser-content-block img {
   width: 72px;
